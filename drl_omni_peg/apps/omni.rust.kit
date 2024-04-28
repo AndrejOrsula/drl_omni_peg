@@ -1,0 +1,219 @@
+[package]
+title = "Isaac Sim Rust"
+description = "Isaac Sim application for use with Rust"
+version = "2023.1.1"
+keywords = ["experience", "app", "usd", "rust"]
+
+[settings]
+app.name = "IsaacSimRust"
+app.version = "2023.1.1"
+app.window.title = "Isaac Sim Rust"
+crashreporter.data.experience = "Isaac Sim Rust"
+
+[dependencies]
+"omni.kit.context_menu" = {}
+"omni.kit.menu.common" = {}
+"omni.kit.menu.create" = {}
+"omni.kit.menu.edit" = {}
+"omni.kit.menu.file" = {}
+"omni.kit.menu.stage" = {}
+"omni.kit.menu.utils" = {}
+"omni.kit.primitive.mesh" = {}
+"omni.kit.profiler.window" = {}
+"omni.kit.property.bundle" = {}
+"omni.kit.property.layer" = {}
+"omni.kit.renderer.core" = {}
+"omni.kit.selection" = {}
+"omni.kit.stage_templates" = {}
+"omni.kit.uiapp" = {}
+"omni.kit.viewport.bundle" = {}
+"omni.kit.viewport.menubar.lighting" = {}
+"omni.kit.viewport.pxr" = {}
+"omni.kit.viewport.rtx" = {}
+"omni.kit.widget.filebrowser" = {}
+"omni.kit.widget.layers" = {}
+"omni.kit.window.commands" = {}
+"omni.kit.window.console" = {}
+"omni.kit.window.content_browser" = {}
+"omni.kit.window.cursor" = {}
+"omni.kit.window.extensions" = {}
+"omni.kit.window.file" = {}
+"omni.kit.window.filepicker" = {}
+"omni.kit.window.property" = {}
+"omni.kit.window.stage" = {}
+"omni.kit.window.status_bar" = {}
+"omni.kit.window.title" = {}
+"omni.kit.window.toolbar" = {}
+"omni.physx.bundle" = {}
+"omni.rtx.settings.core" = {}
+"omni.usd.schema.scene.visualization" = {}
+
+[settings]
+persistent.app.file.recentFiles = []
+persistent.app.omniverse.content_browser.options_menu.show_details = true
+persistent.app.omniverse.filepicker.options_menu.show_details = true
+persistent.app.primCreation.DefaultXformOpOrder = "xformOp:translate,xformOp:orient,xformOp:scale"
+persistent.app.primCreation.DefaultXformOpType = "Scale,Orient,Translate"
+persistent.app.primCreation.typedDefaults.camera.clippingRange = [0.01, 10000000.0]
+persistent.app.stage.instanceableOnCreatingReference = false
+persistent.app.stage.materialStrength = "weakerThanDescendants"
+persistent.app.stage.movePrimInPlace = false
+persistent.app.stage.upAxis = "Z"
+persistent.app.transform.gizmoUseSRT = true
+persistent.app.viewport.camMoveVelocity = 0.05
+persistent.app.viewport.defaults.tickRate = 120
+persistent.app.viewport.displayOptions = 31887
+persistent.app.viewport.gizmo.scale = 0.01
+persistent.app.viewport.grid.scale = 1.0
+persistent.app.viewport.pickingMode = "kind:model.ALL"
+persistent.app.viewport.previewOnPeek = false
+persistent.app.viewport.snapToSurface = false
+persistent.app.window.uiStyle = "NvidiaDark"
+persistent.omni.replicator.captureOnPlay = true
+persistent.omnigraph.disablePrimNodes = true
+persistent.omnigraph.updateToUsd = false
+persistent.omnigraph.useSchemaPrims = true
+persistent.physics.updateToUsd = true
+persistent.physics.updateVelocitiesToUsd = true
+persistent.physics.useFastCache = false
+persistent.physics.visualizationDisplayJoints = false
+persistent.physics.visualizationSimulationOutput = false
+persistent.renderer.startupMessageDisplayed = true
+persistent.simulation.defaultMetersPerUnit = 1.0
+persistent.simulation.minFrameRate = 30
+
+app.asyncRendering = false
+app.asyncRenderingLowLatency = false
+app.content.emptyStageOnStart = false
+app.extensions.registryEnabled = false
+app.extensions.skipPublishVerification = false
+app.fastShutdown = true
+app.file.ignoreUnsavedOnExit = true
+app.font.file = "${fonts}/OpenSans-SemiBold.ttf"
+app.font.size = 16
+app.hydra.aperture.conform = 4
+app.hydraEngine.waitIdle = true
+app.menu.compatibility_mode = false
+app.menu.legacy_mode = false
+app.python.interceptSysStdOutput = false
+app.python.logSysStdOutput = false
+app.renderer.resolution.height = 720
+app.renderer.resolution.width = 1280
+app.renderer.skipWhileMinimized = false
+app.renderer.sleepMsOnFocus = 0
+app.renderer.sleepMsOutOfFocus = 0
+app.runLoops.main.rateLimitEnabled = true
+app.runLoops.main.rateLimitFrequency = 30
+app.runLoops.main.rateLimitUseBusyLoop = false
+app.runLoops.main.rateLimitUsePrecisionSleep = true
+app.runLoops.main.syncToPresent = false
+app.runLoops.present.rateLimitFrequency = 30
+app.runLoops.present.rateLimitUsePrecisionSleep = true
+app.runLoops.rendering_0.fillResolution = false
+app.runLoops.rendering_0.rateLimitEnabled = true
+app.runLoops.rendering_0.rateLimitFrequency = 30
+app.runLoops.rendering_0.rateLimitUsePrecisionSleep = true
+app.runLoops.rendering_0.syncToPresent = false
+app.runLoops.rendering_1.rateLimitEnabled = true
+app.runLoops.rendering_1.rateLimitFrequency = 30
+app.runLoops.rendering_1.rateLimitUsePrecisionSleep = true
+app.runLoops.rendering_1.syncToPresent = false
+app.runLoopsGlobal.syncToPresent = false
+app.settings.dev_build = false
+app.settings.fabricDefaultStageFrameHistoryCount = 3
+app.settings.persistent = true
+app.viewport.defaultCamPos.x = 2.0
+app.viewport.defaultCamPos.y = 2.0
+app.viewport.defaultCamPos.z = 1.0
+app.vsync = true
+app.window._iconSize = 128
+app.window.hideUi = false
+ngx.enabled = true
+omni.replicator.asyncRendering = false
+physics.autoPopupSimulationOutputWindow = false
+privacy.externalBuild = true
+# renderer.enabled = "rtx,pxr"
+# renderer.active = "rtx"
+renderer.enabled = "pxr"
+renderer.active = "pxr"
+renderer.multiGpu.autoEnable = true
+renderer.multiGpu.enabled = true
+rtx-transient.dlssg.enabled = false
+rtx-transient.resourcemanager.enableTextureStreaming = true
+rtx.descriptorSets = 60000
+rtx.directLighting.sampledLighting.enabled = true
+rtx.hydra.enableSemanticSchema = true
+rtx.newDenoiser.enabled = true
+rtx.raytracing.fractionalCutoutOpacity = false
+rtx.reservedDescriptors = 500000
+rtx.sceneDb.maxInstances = 1000000
+
+exts."omni.anim.navigation.core".navMesh.viewNavMesh = false
+exts."omni.kit.browser.asset".visible_after_startup = false
+exts."omni.kit.browser.material".enabled = false
+exts."omni.kit.menu.utils".logDeprecated = false
+exts."omni.kit.pipapi".installCheckIgnoreVersion = true
+exts."omni.kit.renderer.core".imgui.enableMips = true
+exts."omni.kit.renderer.core".present.enabled = false
+exts."omni.kit.renderer.core".present.presentAfterRendering = false
+exts."omni.kit.test".includeTests.1 = "*isaac*"
+exts."omni.kit.tool.asset_importer".useNewFilePicker = true
+exts."omni.kit.tool.collect".useNewFilePicker = true
+exts."omni.kit.usd.layers".auto_reload_sublayers = true
+exts."omni.kit.viewport.menubar.camera".expand = true
+exts."omni.kit.viewport.window".startup.windowName = "Viewport"
+exts."omni.kit.widget.cloud_share".require_access_code = false
+exts."omni.kit.widget.layers".useNewFilePicker = true
+exts."omni.kit.widget.stage".auto_reload_non_sublayers = true
+exts."omni.kit.window.content_browser".enable_thumbnail_generation_images = false
+exts."omni.kit.window.extensions".featuredExts = []
+exts."omni.kit.window.extensions".hideNonToggleableExts = true
+exts."omni.kit.window.extensions".showFeatureOnly = false
+exts."omni.kit.window.file".useNewFilePicker = true
+exts."omni.kit.window.material".load_after_startup = true
+exts."omni.kit.window.modifier.titlebar".changeWindowRegion = true
+exts."omni.kit.window.modifier.titlebar".colors.caption = 0x0F0F0F
+exts."omni.kit.window.modifier.titlebar".colors.client = 0x0F0F0F
+exts."omni.kit.window.modifier.titlebar".defaultFont.color = 0xD0D0D0
+exts."omni.kit.window.modifier.titlebar".defaultFont.name = "Arial"
+exts."omni.kit.window.modifier.titlebar".defaultFont.size = 16
+exts."omni.kit.window.modifier.titlebar".icon.size = 128
+exts."omni.kit.window.modifier.titlebar".respondOnMouseUp = true
+exts."omni.kit.window.modifier.titlebar".separator.color = 0x00B976
+exts."omni.kit.window.modifier.titlebar".separator.width = 1
+exts."omni.kit.window.modifier.titlebar".showFileFullPath = true
+exts."omni.kit.window.modifier.titlebar".windowBorder.color = 0x0F0F0F
+exts."omni.kit.window.modifier.titlebar".windowBorder.width = 2
+exts."omni.kit.window.viewport".blockingGetViewportDrawable = false
+exts."omni.services.transport.server.http".port = 8211
+
+exts."omni.kit.browser.asset".folders."++" = [
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/ArchVis/Commercial",
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/ArchVis/Industrial",
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/ArchVis/Residential",
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Equipment",
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Safety",
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping",
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Storage",
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Vegetation",
+]
+exts."omni.kit.browser.material".folders."++" = [
+    "Base::https://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base",
+    "Twinbru Fabrics::https://twinbru.s3.eu-west-1.amazonaws.com/omniverse/Twinbru Fabrics",
+    "vMaterials::https://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/vMaterials_2",
+]
+exts."omni.kit.browser.sample".folders."++" = [
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Samples",
+]
+exts."omni.kit.browser.texture".folders."++" = [
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Vegetation",
+]
+exts."omni.kit.window.environment".folders."++" = [
+    "https://omniverse-content-production.s3.us-west-2.amazonaws.com/Assets/Skies/2022_1/Skies",
+    "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Scenes/Templates",
+]
+exts."omni.kit.registry.nucleus".registries."++" = [
+    { name = "kit/community", url = "https://dw290v42wisod.cloudfront.net/exts/kit/community" },
+    { name = "kit/default", url = "https://ovextensionsprod.blob.core.windows.net/exts/kit/prod/shared" },
+    { name = "kit/sdk", url = "https://ovextensionsprod.blob.core.windows.net/exts/kit/prod/sdk/${kit_version_short}/${kit_git_hash}" },
+]

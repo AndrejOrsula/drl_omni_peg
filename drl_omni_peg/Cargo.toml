@@ -1,0 +1,35 @@
+[package]
+name = "drl_omni_peg"
+authors.workspace = true
+categories.workspace = true
+description.workspace = true
+edition.workspace = true
+keywords.workspace = true
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+publish.workspace = true
+
+[build-dependencies]
+pyo3_bindgen = { workspace = true }
+
+[dependencies]
+autocxx = { workspace = true }
+chrono = { workspace = true }
+isaac_sim = { workspace = true }
+itertools = { workspace = true }
+nalgebra = { workspace = true }
+num-integer = { workspace = true }
+omniverse = { workspace = true }
+pxr = { workspace = true }
+pyo3 = { workspace = true }
+rand = { workspace = true }
+rand_distr = { workspace = true }
+rustc-hash = { workspace = true }
+
+[lib]
+name = "drl_omni_peg"
+path = "src/lib.rs"
+crate-type = ["rlib"]

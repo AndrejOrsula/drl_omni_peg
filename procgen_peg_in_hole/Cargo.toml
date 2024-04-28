@@ -1,0 +1,17 @@
+[package]
+name = "procgen_peg_in_hole"
+authors.workspace = true
+categories.workspace = true
+description.workspace = true
+edition.workspace = true
+keywords.workspace = true
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+publish.workspace = true
+
+[dependencies]
+blr = { workspace = true }
+pyo3 = { workspace = true }

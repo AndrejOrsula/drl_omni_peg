@@ -1,0 +1,48 @@
+[workspace]
+members = [
+    # Environments for robotic assembly
+    "drl_omni_peg",
+    # Standard assets
+    "procgen_peg_in_hole",
+]
+resolver = "2"
+
+[workspace.package]
+authors = ["Andrej Orsula <orsula.andrej@gmail.com>"]
+categories = ["science::robotics", "simulation"]
+description = "Peg-in-hole assembly with deep reinforcement learning"
+edition = "2021"
+keywords = ["machine-learning", "robotics", "simulation"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/AndrejOrsula/drl_omni_peg"
+rust-version = "1.74"
+version = "0.1.0"
+publish = false
+
+[workspace.dependencies]
+autocxx = { version = "0.26" }
+blr = { version = "0.1" }
+chrono = { version = "0.4" }
+gymnasium = { version = "0.0" }
+isaac_sim = { version = "0.2" }
+itertools = { version = "0.12" }
+nalgebra = { version = "0.32" }
+num-integer = { version = "0.1" }
+omniverse = { version = "0.2" }
+pxr = { version = "0.2" }
+pyo3 = { version = "0.20", features = ["abi3-py310", "auto-initialize"] }
+pyo3_bindgen = { version = "0.4", default-features = false }
+rand = { version = "0.8" }
+rand_distr = { version = "0.4" }
+rustc-hash = { version = "1.1" }
+
+[patch.crates-io]
+# Until https://github.com/rust-lang/rust-bindgen/pull/2423 is merged into autocxx-bindgen
+autocxx-bindgen = { git = "https://github.com/AndrejOrsula/autocxx_bindgen", branch = "fix_union_template" }
+# Adds `use_cxx11_abi` feature that allows enabling/disabling CXX11 ABI during compilation (for C++ std::string compatibility)
+cxx = { git = "https://github.com/AndrejOrsula/cxx", branch = "dev_pxr" }
+# (ugly hack) Includes hardcoded allowlist for double underscore identifiers - __pxrReserved__ namespace
+cxx-gen = { git = "https://github.com/AndrejOrsula/cxx", branch = "dev_pxr" }
+# (ugly hack) Includes hardcoded allowlist for double underscore identifiers - __pxrReserved__ namespace
+autocxx-engine = { git = "https://github.com/AndrejOrsula/autocxx", branch = "dev_pxr" }

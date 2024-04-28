@@ -1,0 +1,123 @@
+name: Rust
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
+  cancel-in-progress: true
+
+env:
+  MSRV: "1.74"
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rustfmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      ## cargo fmt
+      - name: cargo fmt
+        run: cargo fmt --all --check --verbose
+
+  cargo:
+    needs: rustfmt
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain:
+          - MSRV
+          - stable
+          - beta
+    env:
+      ISAAC_SIM_PATH: "${{ github.workspace }}/isaac_sim_dummy"
+    steps:
+      ## Free up space by removing unnecessary files
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v3
+        with:
+          remove-android: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
+          remove-dotnet: "true"
+          remove-haskell: "true"
+
+      - uses: actions/checkout@v4
+      - uses: Swatinem/rust-cache@v2
+        with:
+          save-if: ${{ github.event_name == 'push'}}
+      - uses: dtolnay/rust-toolchain@master
+        if: ${{ matrix.toolchain != 'MSRV' && matrix.toolchain != 'stable' }}
+        with:
+          toolchain: ${{ matrix.toolchain }}
+      - uses: dtolnay/rust-toolchain@master
+        if: ${{ matrix.toolchain == 'MSRV' }}
+        with:
+          toolchain: ${{ env.MSRV }}
+      - uses: dtolnay/rust-toolchain@master
+        if: ${{ matrix.toolchain == 'stable' }}
+        with:
+          toolchain: ${{ matrix.toolchain }}
+          components: clippy
+
+      ## Install dependencies
+      - run: sudo apt-get update && sudo apt-get install -yq --no-install-recommends cmake libarchive-dev libgl-dev libglu-dev libilmbase-dev libssl-dev libx11-dev libxt-dev nvidia-cuda-dev pybind11-dev
+      - uses: KyleMayes/install-llvm-action@v2
+        with:
+          version: "15.0"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      ## Use mold linker
+      - uses: rui314/setup-mold@v1
+
+      ## Mock Isaac Sim installation
+      - run: mkdir -p ${ISAAC_SIM_PATH} && echo "0.0.0-XXX" > "${ISAAC_SIM_PATH}/VERSION"
+
+      ## Install RL dependencies
+      - run: python -m pip install setuptools==65.5.0
+      - run: python -m pip install gymnasium==0.29.1
+      - run: python -m pip install stable-baselines3[extra]==2.2.1 sb3-contrib==2.2.1
+      - run: python -m pip install git+https://github.com/AndrejOrsula/dreamerv3.git@no_replay_saver
+
+      ## cargo check
+      - name: cargo check
+        run: cargo check --workspace --all-targets --verbose
+
+      ## cargo test
+      - name: cargo test
+        run: cargo test --workspace --all-targets --verbose
+
+      ## cargo test --doc
+      - name: cargo test --doc
+        run: cargo test --workspace --doc --verbose
+
+      ## [stable] cargo clippy
+      - name: stable | cargo clippy
+        if: ${{ matrix.toolchain == 'stable' }}
+        run: cargo clippy --workspace --all-targets --no-deps --verbose -- --deny warnings
+
+      ## [stable] cargo doc
+      - name: stable | cargo doc --document-private-items
+        if: ${{ matrix.toolchain == 'stable' }}
+        run: cargo doc --workspace --no-deps --document-private-items --verbose
+
+  deny:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: EmbarkStudios/cargo-deny-action@v1
+        with:
+          command: check bans licenses sources
