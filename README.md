@@ -38,7 +38,6 @@ As a proof-of-concept, the [environment logic](drl_omni_peg/src/env/peg_in_hole.
 The workspace contains these packages:
 
 - **[drl_omni_peg](drl_omni_peg):** Peg-in-hole environment and RL training/evaluation pipelines
-- **[procgen_peg_in_hole](procgen_peg_in_hole):** Procedural pipelines for generating peg-in-hole modules
 
 ## Instructions
 
@@ -49,14 +48,7 @@ The workspace contains these packages:
 
 #### Generation of Procedural Peg-in-Hole Modules
 
-The train and test sets can be generated via [`generate_peg_in_hole_train.rs`](procgen_peg_in_hole/src/bin/generate_peg_in_hole_train.rs) and [`generate_peg_in_hole_test.rs`](procgen_peg_in_hole/src/bin/generate_peg_in_hole_test.rs), respectively.
-
-```bash
-# Generate train set
-cargo run --release --bin generate_peg_in_hole_train
-# Generate test set
-cargo run --release --bin generate_peg_in_hole_test
-```
+The procedural generation of peg-in-hole modules is now available at [AndrejOrsula/blr_procgen](https://github.com/AndrejOrsula/blr_procgen). Both train and test sets can be generated using separate binaries: `generate_peg_in_hole_train` and `generate_peg_in_hole_test`.
 
 #### Random Agent
 

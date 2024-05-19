@@ -266,24 +266,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf4b9d6a944f767f8e5e0db018570623c85f3d925ac718db4e06d0187adb21c1"
 
 [[package]]
-name = "blr"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d0af35843902676f265c0a4b523642428423ef0b9cba236731484a7072000b9"
-dependencies = [
- "builder_derive_more",
- "derive_builder",
- "derive_more",
- "nalgebra",
- "pyo3",
- "pyo3_derive_more",
- "pyo3_macros_more",
- "semver 1.0.22",
- "thiserror",
- "which 6.0.1",
-]
-
-[[package]]
 name = "builder_derive_more"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1580,14 +1562,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "procgen_peg_in_hole"
-version = "0.1.0"
-dependencies = [
- "blr",
- "pyo3",
-]
-
-[[package]]
 name = "pxr"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1715,23 +1689,6 @@ dependencies = [
  "thiserror",
  "typed-builder",
 ]
-
-[[package]]
-name = "pyo3_derive_more"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6149ca367016689666079a4f95287ca0c8231deab06bb13a66899b7fe7b2a0de"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.60",
-]
-
-[[package]]
-name = "pyo3_macros_more"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b3fb24f73a369ec80e191f059275b5b4cddf812f5acfac761e264d1163c60e05"
 
 [[package]]
 name = "python-config-rs"

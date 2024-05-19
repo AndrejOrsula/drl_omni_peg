@@ -2,8 +2,6 @@
 members = [
     # Environments for robotic assembly
     "drl_omni_peg",
-    # Standard assets
-    "procgen_peg_in_hole",
 ]
 resolver = "2"
 
@@ -22,7 +20,6 @@ publish = false
 
 [workspace.dependencies]
 autocxx = { version = "0.26" }
-blr = { version = "0.1" }
 chrono = { version = "0.4" }
 gymnasium = { version = "0.0" }
 isaac_sim = { version = "0.2" }
